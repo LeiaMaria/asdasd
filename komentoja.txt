@@ -1,0 +1,81 @@
+? -> ???
+enable 				-> privileged exec mode
+configure terminal 		-> global configuration mode
+exit 				-> back / exit global config mode
+line console 0 			-> sub configuration mode
+end				-> move from any sub configuration mode to privileged exec mode OR CTRL-Z
+
+CTRL+SHIFT+6			-> All-purpose break
+
+hostname			-> hostname .. no hostname
+enable secret	****		-> priviliged exec access password (class)
+password *****			-> specify user exec mode password
+login				-> enable user exec access
+
+banner motd # *** #		-> message of the day
+copy running-config startup-config	-> save changes to config
+
+show version >>
+show running-config
+show interfaces
+show arp
+show ip route
+show protocols
+show cdp neighbors
+show ip interface brief
+show file systems		// command displays all of the available file systems on the device.
+
+debug ?
+no debug
+debug ip icmp
+undebug ip icmp
+
+terminal monitor
+
+configure terminal 
+interface gigabitethernet 0/0 > ip address bla bla bla
+
+show ip interface brief ... 
+
+show running-config
+
+ipv6 unicast-routing
+ipv6 address fe80::1 link-local
+show ipv6 interface brief
+
+service password-encryption
+security passwords min-length
+Router(config)# login block-for 120 attempts 3 within 60 //The correct syntax is RouterA(config)# login block-for (number of seconds) attempts (number of attempts) within (number of seconds).
+Router(config)# line vty 0 4
+Router(config-line)# exec-timeout 10 
+
+Router(config)#hostname Middle
+Middle(config)#enable secret class12345
+Middle(config)#service password-encryption
+Middle(config)#banner motd $This is Router$
+Middle(config)#security passwords min-length 10
+Middle(config)#login block-for 120 attempts 2 within 30
+Middle(config)#no ip domain-lookup
+Middle(config)#ip domain-name cisco.net
+Middle(config)#crypto key generate rsa
+How many bits in the modulus [512]: 1024
+
+Middle(config)#interface g0/0
+Middle(config-if)#ip address 192.168.1.126 255.255.255.224
+Middle(config-if)#description First Floor LAN
+Middle(config-if)#ipv6 address 2001:DB8:ACAD:A::1/64
+Middle(config-if)#ipv6 address fe80::1 link-local
+Middle(config-if)#no shutdown
+Middle(config-if)#exit
+
+Middle#copy running-config tftp: 
+Address or name of remote host []? 192.168.1.146
+Destination filename [Middle-confg]? 
+Press Enter
+
+
+
+WIRESHARK filter
+tcp and ip.addr == 172.217.22.163	<--- filtteri tcp ja ip osoite
+
+Tera Term
